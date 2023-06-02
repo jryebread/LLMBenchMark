@@ -1,3 +1,4 @@
 # LLMBenchMark
-Like system requirements lab but for LLMs 
-![](dRPKVar (1).png)
+Like system requirements lab but for LLMs
+
+![Mockup](mockup_llm.png)
