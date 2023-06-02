@@ -5,6 +5,7 @@ import CopyButton from "@/components/molecules/copy-button";
 import Feature, { FeatureProps } from "@/components/molecules/feature";
 
 import styles from "./index.module.css";
+import React from "react";
 
 const features: FeatureProps[] = [
   {
@@ -84,7 +85,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Nextal - Next Starter Template</title>
+        <title>LLMBenchMark - SystemRequirementsLab, but for LLMs</title>
         <meta
           name="description"
           content="NextJs starter template using TypeScript and Tailwind"
@@ -93,19 +94,18 @@ const Home: NextPage = () => {
       </Head>
       <section className={styles.copy}>
         <div className={styles.copyInner}>
-          <a href="https://github.com/jvidalv/nextal">
+          <a href="https://github.com/jryebread/LLMBenchMark">
             <Button>Visit on Github</Button>
           </a>
-          <CopyButton text="npx degit jvidalv/nextal my-nextjs-app" />
         </div>
       </section>
-      <section className={styles.features}>
+      {/* <section className={styles.features}>
         {features.map((f) => (
           <div key={f.title} className={styles.feature}>
             <Feature {...f} />
           </div>
         ))}
-      </section>
+      </section> */}
     </>
   );
 };
