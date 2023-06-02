@@ -3,7 +3,7 @@
 }
 
 .copyInner {
-  @apply sm:flex sm:space-x-4 space-y-4 sm:space-y-0 items-center;
+  @apply sm:flex my-8 mx-4 sm:space-x-4 space-y-4 sm:space-y-0 items-center;
 }
 
 .features {

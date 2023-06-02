@@ -6,80 +6,7 @@ import Feature, { FeatureProps } from "@/components/molecules/feature";
 
 import styles from "./index.module.css";
 import React from "react";
-
-const features: FeatureProps[] = [
-  {
-    title: "Next",
-    description:
-      "Best developer experience with all the features you need for production: hybrid static & server rendering",
-    link: "https://nextjs.org/",
-  },
-  {
-    title: "React",
-    description: "JavaScript library for building user interfaces.",
-    link: "https://reactjs.org/",
-  },
-  {
-    title: "TypeScript",
-    description:
-      "Strongly typed programming language that builds on JavaScript.",
-    link: "https://www.typescriptlang.org/",
-  },
-  {
-    title: "Tailwind with JIT",
-    description: "A utility-first CSS framework packed with classes.",
-    link: "https://tailwindcss.com/",
-  },
-  {
-    title: "Jest",
-    description: "Testing Framework with a focus on simplicity.",
-    link: "https://jestjs.io/",
-  },
-  {
-    title: "Dark Mode",
-    description: "Dark theme support for CSS-Modules and Tailwind.",
-    link: "https://tailwindcss.com/docs/dark-mode",
-  },
-  {
-    title: "CSS Modules",
-    description:
-      "CSS file in which all class names and animation names are scoped locally by default.",
-    link: "https://github.com/css-modules/css-modules",
-  },
-  {
-    title: "ESLint",
-    description: "Find and fix problems in your JavaScript code.",
-    link: "https://eslint.org/",
-  },
-  {
-    title: "Prettier",
-    description: "An opinionated code formatter.",
-    link: "https://prettier.io/",
-  },
-  {
-    title: "Husky",
-    description:
-      "Lint your commit messages, run tests, lint code, etc... when you commit or push.",
-    link: "https://github.com/typicode/husky",
-  },
-  {
-    title: "Commit-lint",
-    description: "Helps your team adhering to a commit convention.",
-    link: "https://github.com/conventional-changelog/commitlint",
-  },
-  {
-    title: "Atomic design",
-    description:
-      "We’re not designing pages, we’re designing systems of components.",
-    link: "https://bradfrost.com/blog/post/atomic-web-design/",
-  },
-  {
-    title: "Absolute imports",
-    description:
-      "Import resource using its full path from the project’s src folder.",
-    link: "https://github.com/vitejs/vite/issues/88#issuecomment-762415200",
-  },
-];
+import Setup from "../components/setup/setup";
 
 const Home: NextPage = () => {
   return (
@@ -92,6 +19,12 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div className="relative max-w-screen-lg xl:max-w-screen-xl mx-auto">
+        <h1 className="text-6xl font-serif my-8 px-2 py-2 pt-8 ">Your System</h1>
+        <Setup />
+      </div>
+
       <section className={styles.copy}>
         <div className={styles.copyInner}>
           <a href="https://github.com/jryebread/LLMBenchMark">

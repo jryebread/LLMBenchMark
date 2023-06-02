@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./header.module.css";
-
+import Setup from "../../setup/setup";
 const Header = (): JSX.Element => {
   return (
     <header className={styles.header}>
