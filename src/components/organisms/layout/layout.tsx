@@ -9,6 +9,7 @@ const Layout: FCC = ({ children }) => {
     <div className={styles.layout}>
       <Header />
       <main>{children}</main>
+      
       <Footer />
     </div>
   );
