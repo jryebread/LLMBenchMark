@@ -6,16 +6,15 @@ const Dropdown = ({ label, options, value, setValue }) => (
 
     <div className="w-full">
       <select
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={value ? value.name : ''}
+        onChange={(e) => setValue(options.find((option) => option.name === e.target.value))}
         className="w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg border border-purple-300 shadow-md cursor-pointer focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500"
       >
-        <option value="" disabled hidden>
-          Select...
-        </option>
+<option value="" disabled hidden> Select... </option>
         {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
+          <option key={option.name} value={option.name}>
+            {option.name}
+            {option.vram ? ` (${option.vram}GB)` : ''}
           </option>
         ))}
       </select>
@@ -25,23 +24,62 @@ const Dropdown = ({ label, options, value, setValue }) => (
 
 const Setup = ({ graphicsCard, setGraphicsCard, processor, setProcessor, totalRam, setTotalRam }) => {
 
-  const graphicsCards = ['NVIDIA GeForce RTX 3090', 'AMD Radeon RX 6900 XT', 'NVIDIA GeForce RTX 3080'];
-  const processors = ['Intel Core i9-10900K', 'AMD Ryzen 9 5950X', 'Intel Core i7-10700K'];
-  const totalRams = ['16GB', '32GB', '64GB'];
+  const graphicsCards = [
+    {
+      name: 'NVIDIA GeForce RTX 3090',
+      vram: 24
+    },
+    {
+      name: 'AMD Radeon RX 6900 XT',
+      vram: 16
+    },
+    {
+      name: 'NVIDIA GeForce RTX 3080',
+      vram: 10
+    },
+    {
+      name: 'NVIDIA GeForce RTX 3070',
+      vram: 8
+    },
+    {
+      name: 'AMD Radeon RX 6800 XT',
+      vram: 16
+    },
+    {
+      name: 'AMD Radeon RX 6700 XT',
+      vram: 12
+    },
+    {
+      name: 'NVIDIA GeForce RTX 3060 Ti',
+      vram: 8
+    }
+  ];
 
+  const processors = [
+    { name: 'Intel Core i9-10900K' },
+    { name: 'AMD Ryzen 9 5950X' },
+    { name: 'Intel Core i7-10700K' },
+    { name: 'AMD Ryzen 7 5800X' },
+    { name: 'Intel Core i5-11600K' },
+    { name: 'AMD Ryzen 5 5600X' }
+  ];
+  
+  const totalRams = [
+    { name: '16GB' },
+    { name: '32GB' },
+    { name: '64GB' }
+  ];
+  
   return (
     <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-auto">
-      <div className="bg-white px-4 my-8 py-8">
-      <Dropdown label="Graphics&nbsp;" options={graphicsCards} value={graphicsCard} setValue={setGraphicsCard} />
+      <div className="bg-white px-6 my-8 py-8">
+        <Dropdown label="Graphics" options={graphicsCards} value={graphicsCard} setValue={setGraphicsCard} />
       </div>
       <div className="bg-white px-4 my-8 py-8">
-
-      <Dropdown label="Processor" options={processors} value={processor} setValue={setProcessor} />
+        <Dropdown label="Processor" options={processors} value={processor} setValue={setProcessor} />
       </div>
-
       <div className="bg-white px-4 my-8 py-8">
-
-      <Dropdown label="Total RAM" options={totalRams} value={totalRam} setValue={setTotalRam} />
+        <Dropdown label="TotalRAM" options={totalRams} value={totalRam} setValue={setTotalRam} />
       </div>
     </div>
   );

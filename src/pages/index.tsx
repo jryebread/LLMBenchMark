@@ -10,9 +10,9 @@ import Setup from "../components/setup/setup";
 
 const Home: NextPage = () => {
 
-  const [graphicsCard, setGraphicsCard] = useState('');
-  const [processor, setProcessor] = useState('');
-  const [totalRam, setTotalRam] = useState('');
+  const [graphicsCard, setGraphicsCard] = useState(null);
+  const [processor, setProcessor] = useState(null);
+  const [totalRam, setTotalRam] = useState(null);
   const [filteredLLMs, setFilteredLLMs] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -84,23 +84,26 @@ const Home: NextPage = () => {
 
       </section>
       <section>
-        <table className="table-auto w-full">
-          <thead>
-            <tr>
-              <th className="border px-4 py-2">Model Name</th>
-              <th className="border px-4 py-2">Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredLLMs.map((llm, index) => (
-              <tr key={index} className={index % 2 === 0 ? 'bg-gray-200' : ''}>
-                <td className="border px-4 py-2">{llm.name}</td>
-                <td className="border px-4 py-2">{llm.minVRAM}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+  <table className="table-auto w-full">
+    <thead>
+      <tr>
+        <th className="border py-2">Model Name</th>
+        <th className="border px-4 py-2">Description</th>
+        <th className="border py-2">Min VRAM</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredLLMs.map((llm, index) => (
+        <tr key={index} className={index % 2 === 0 ? 'bg-gray-200' : ''}>
+          <td className="border px-4 py-2">{llm.name}</td>
+          <td className="border px-4 py-2">{llm.description}</td>
+
+          <td className="border px-4 py-2">{llm.minVRAM}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</section>
       </div>}
     </>
   );
